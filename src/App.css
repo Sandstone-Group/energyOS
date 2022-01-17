@@ -26,6 +26,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App-link {
@@ -39,4 +40,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn {
+  background-color: black;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  font-size: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
