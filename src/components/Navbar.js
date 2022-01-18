@@ -22,6 +22,14 @@ const Navbar = () => {
             <li className="nav-item">
               <a
                 className="nav-link"
+                href="https://www.linkedin.com/in/michaeltannersandstone/"
+              >
+                Team
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
                 href="https://github.com/Sandstone-Group/energyos"
               >
                 github
