@@ -1,12 +1,14 @@
 .App {
   text-align: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(16, 114, 65);
-  background: scroll;
+  color: rgb(0, 0, 0);
+  background: border-box red;
+  max-width: 100%;
 }
 
 .App-header {
-  background-color: #031d52;
+  background-color: #071a3f;
+  background: border-box black;
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -14,7 +16,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
+  color: rgb(148, 107, 107);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Signin from "./components/Signin";
+import Team from "./components/Team";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/team" element={<Team />} />
       </Routes>
     </div>
   );
