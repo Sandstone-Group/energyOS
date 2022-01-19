@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import "./Contact.css";
+import Hero from "./Hero";
 
 const Contact = (props) => {
   const [userInput, setUserInput] = useState({
     name: "",
     email: "",
     date: "",
+    comment: "",
   });
 
   const titleChangeHandler = (event) => {
@@ -27,45 +29,62 @@ const Contact = (props) => {
     });
   };
 
+  const commentChangeHandler = (event) => {
+    setUserInput((prevState) => {
+      return { ...prevState, comment: event.target.value };
+    });
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(userInput);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="new-expense">
-        <div className="new-expense__control">
-          <label>Name</label>
-          <input
-            type="text"
-            value={userInput.name}
-            onChange={titleChangeHandler}
-          />
+    <>
+      <Hero text="Contact the team here:" />
+      <form onSubmit={submitHandler}>
+        <div className="App-header">
+          <div className="new-expense__control">
+            <label>Name</label>
+            <input
+              type="text"
+              value={userInput.name}
+              onChange={titleChangeHandler}
+            />
+          </div>
+          <div className="new-expense__control">
+            <label>Email</label>
+            <input
+              value={userInput.email}
+              onChange={amountChangeHandler}
+              type="text"
+            />
+          </div>
+          <div className="new-expense__control">
+            <label>Date</label>
+            <input
+              value={userInput.date}
+              onChange={dateChangeHandler}
+              type="date"
+              min="2019-01-01"
+              max="2023-12-31"
+            />
+          </div>
+          <div className="new-expense__control">
+            <label>Comment:</label>
+            <textarea
+              value={userInput.comment}
+              onChange={commentChangeHandler}
+              className="form-control"
+              rows="5"
+              id="comment"
+            ></textarea>
+            <button className="btn">Submit</button>
+          </div>
         </div>
-        <div className="new-expense__control">
-          <label>Email</label>
-          <input
-            value={userInput.email}
-            onChange={amountChangeHandler}
-            type="text"
-          />
-        </div>
-        <div className="new-expense__control">
-          <label>Date</label>
-          <input
-            value={userInput.date}
-            onChange={dateChangeHandler}
-            type="date"
-            min="2019-01-01"
-            max="2023-12-31"
-          />
-        </div>
-      </div>
-      <div className="new-expense button">
-        <button type="submit">Email the team lead</button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 

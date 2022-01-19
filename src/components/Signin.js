@@ -1,46 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import Hero from "./Hero";
 
 const Signin = () => {
+  const [userInputSign, setUserInputSign] = useState({
+    email: "",
+    password: "",
+  });
+
+  const emailChangeHandler = (event) => {
+    setUserInputSign((prevState) => {
+      return { ...prevState, email: event.target.value };
+    });
+  };
+
+  const passwordChangeHandler = (event) => {
+    setUserInputSign((prevState) => {
+      return { ...prevState, password: event.target.value };
+    });
+  };
+
+  const SignSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(userInputSign);
+  };
+
   return (
-    <form>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-        <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
-        </div>
+    <>
+      <Hero text="Sign In Below" />
+      <div className="App-header">
+        <form onSubmit={SignSubmitHandler} className="form-inline">
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              value={userInputSign.email}
+              onChange={emailChangeHandler}
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" className="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              Password
+            </label>
+            <input
+              value={userInputSign.password}
+              onChange={passwordChangeHandler}
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <button type="submit" className="btn">
+            Submit
+          </button>
+        </form>
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="exampleInputPassword1"
-        />
-      </div>
-      <div className="mb-3 form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          id="exampleCheck1"
-        />
-        <label className="form-check-label" htmlFor="exampleCheck1">
-          Check me out
-        </label>
-      </div>
-      <button type="submit" className="btn">
-        Submit
-      </button>
-    </form>
+    </>
   );
 };
 
